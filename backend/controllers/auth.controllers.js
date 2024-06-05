@@ -23,8 +23,8 @@ export const signup = async (req, res) => {
         // Default profile picture
         // https://avatar-placeholder.iran.liara.run
 
-        const boyPP = `https://avatar-placeholder.iran.liara.run/public/boy?username=${username}`
-        const girlPP = `https://avatar-placeholder.iran.liara.run/public/girl?username=${username}`
+        const boyPP = `https://avatar.iran.liara.run/public/boy?username=${username}`
+        const girlPP = `https://avatar.iran.liara.run/public/girl?username=${username}`
 
         const newUser = new User({
             fullName,
@@ -58,11 +58,11 @@ export const login = async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        console.log(req.body)
+        // console.log("req body  : ", req.body)
         const user = await User.findOne({ username })
-        console.log(user);
+        // console.log(user);
         const isCorrectPassword = await bcrypt.compare(password, user?.password || "")   // The || "" part wis essential because otherwise bcrypt will give me an "illegal arguement" arror
-        console.log(isCorrectPassword);
+        // console.log(isCorrectPassword);
         if (!user || !isCorrectPassword) {
             return res.status(400).json({ error: "invalid credentials" })
         }
