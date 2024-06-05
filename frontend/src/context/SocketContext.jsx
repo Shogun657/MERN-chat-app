@@ -12,10 +12,10 @@ export const SocketContextProvider = ({ children }) => {
 	const [socket, setSocket] = useState(null);
 	const [onlineUsers, setOnlineUsers] = useState([]);
 	const { authUser } = useAuthContext();
-
+	const socketURI = "https://chat-a-lot-z4hc.onrender.com"
 	useEffect(() => {
 		if (authUser) {
-			const socket = io(("http://localhost:3000"), {
+			const socket = io((socketURI || "http://localhost:3000"), {
 				query: {
 					userId: authUser._id,
 				},
