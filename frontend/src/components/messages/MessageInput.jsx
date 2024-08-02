@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 import { BsSend } from 'react-icons/bs'
 import useSendMessage from '../../hooks/useSendMessage';
@@ -14,8 +15,8 @@ const MessageInput = () => {
   }
 
   return (
-    <form className="relative px-4 my-3" onSubmit={handleSubmit}>
-      <div className="relative w-full">
+    <form className=" px-4 my-3" onSubmit={handleSubmit}>
+      <div className="w-full relative">
         <input
           type="text"
           className='border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 text-white'

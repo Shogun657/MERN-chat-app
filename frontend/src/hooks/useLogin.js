@@ -8,7 +8,6 @@ const useLogin = () => {
 
   const login = async (username, password) => {
     const success = handleInputErrors(username, password);
-    console.log(success);
     if (!success) return;
     setLoading(true)
     try {
